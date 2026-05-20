@@ -1,0 +1,70 @@
+<!-- PASO 8: CREAR ENTORNOS -->
+<div class="step-section" id="step-8">
+  <div class="card">
+    <div class="card-header">
+      <div class="icon blue">🌐</div>
+      <div>
+        <h2>Paso 8 — Crear Entornos (ITARC)</h2>
+        <p>QA, UAT, PRO — Ambientes del sistema aplicativo</p>
+      </div>
+    </div>
+
+    <div id="env-container">
+      <div class="env-entry" style="border:1px solid #E8E8F0; border-radius:8px; padding:20px; margin-bottom:16px;">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombre del Entorno *</label>
+            <input type="text" class="env-name" value="QA - Gastos Médicos Mayores">
+          </div>
+          <div class="form-group">
+            <label>Proyecto GCP</label>
+            <input type="text" class="env-gcp" value="gnp-gmm-qa">
+          </div>
+        </div>
+      </div>
+      <div class="env-entry" style="border:1px solid #E8E8F0; border-radius:8px; padding:20px; margin-bottom:16px;">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombre del Entorno *</label>
+            <input type="text" class="env-name" value="UAT - Gastos Médicos Mayores">
+          </div>
+          <div class="form-group">
+            <label>Proyecto GCP</label>
+            <input type="text" class="env-gcp" value="gnp-gmm-uat">
+          </div>
+        </div>
+      </div>
+      <div class="env-entry" style="border:1px solid #E8E8F0; border-radius:8px; padding:20px; margin-bottom:16px;">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombre del Entorno *</label>
+            <input type="text" class="env-name" value="PRO - Gastos Médicos Mayores">
+          </div>
+          <div class="form-group">
+            <label>Proyecto GCP</label>
+            <input type="text" class="env-gcp" value="gnp-gmm-pro">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-secondary" onclick="agregarEntorno()" style="margin-bottom:20px;">
+      ➕ Agregar otro entorno
+    </button>
+
+    <div class="btn-group">
+      <button class="btn btn-secondary" onclick="goToStep(7)">← Volver</button>
+      <div class="spinner" id="env-spinner"></div>
+      <button class="btn btn-primary" onclick="crearEntornos()">🚀 Crear Entornos</button>
+    </div>
+
+    <div class="result-panel" id="env-result">
+      <div class="result-header"><span>Respuesta</span></div>
+      <pre id="env-result-json"></pre>
+    </div>
+  </div>
+
+  <div class="btn-group">
+    <button class="btn btn-primary" onclick="goToStep(9)">Continuar → Service Points</button>
+  </div>
+</div>

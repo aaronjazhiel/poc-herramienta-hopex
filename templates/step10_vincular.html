@@ -1,0 +1,139 @@
+<!-- PASO 10: VINCULAR Y ASIGNAR OWNERS -->
+<div class="step-section" id="step-10">
+  <div class="card">
+    <div class="card-header">
+      <div class="icon green">🔗</div>
+      <div>
+        <h2>Paso 10 — Vincular Componentes y Asignar Owners</h2>
+        <p>Conectar todo al SA y a la App, asignar responsables</p>
+      </div>
+    </div>
+
+    <!-- VINCULACIÓN RÁPIDA AUTOMÁTICA -->
+    <div style="background:#E8FFF5; padding:20px; border-radius:8px; margin-bottom:24px; border:1px solid var(--gnp-success);">
+      <h3 style="font-size:15px; margin-bottom:12px; color:var(--gnp-success);">⚡ Vinculación Rápida (Automática)</h3>
+      <p style="font-size:13px; color:var(--gnp-gray); margin-bottom:16px;">
+        Vincula automáticamente todos los objetos creados en los pasos anteriores al Sistema Aplicativo y a la Application.
+        Los IDs se toman de lo que ya se creó en esta sesión.
+      </p>
+      <div class="btn-group" style="justify-content:flex-start;">
+        <div class="spinner" id="autovinc-spinner"></div>
+        <button class="btn btn-success" onclick="autoVincularTodo()">⚡ Vincular Todo Automáticamente</button>
+      </div>
+      <div class="result-panel" id="autovinc-result">
+        <div class="result-header"><span>Resultado de vinculación automática</span></div>
+        <pre id="autovinc-result-json"></pre>
+      </div>
+    </div>
+
+    <hr style="margin:24px 0; border:1px solid #E8E8F0;">
+
+    <!-- VINCULACIÓN MANUAL AL SA -->
+    <h3 style="margin-bottom:12px; font-size:16px;">🏗️ Vincular al Sistema Aplicativo (manual)</h3>
+    <div class="form-group">
+      <label>ID del Sistema Aplicativo (SA)</label>
+      <input type="text" id="vinc-sa-id" placeholder="Se llena automáticamente al crear el SA">
+    </div>
+
+    <div class="form-group">
+      <label>Tipo de vinculación</label>
+      <select id="vinc-sa-tipo">
+        <option value="application">Application → SA</option>
+        <option value="microservicio">Microservicios → SA</option>
+        <option value="entorno">Entornos → SA</option>
+        <option value="deposito_relacional">Depósito Relacional → SA</option>
+        <option value="deposito_nosql">Depósito NoSQL → SA</option>
+        <option value="deposito_file">Depósito Archivos → SA</option>
+        <option value="escenario">Escenario de Flujos → SA</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>IDs a vincular (separados por coma)</label>
+      <input type="text" id="vinc-sa-ids" placeholder="ID1, ID2, ID3">
+    </div>
+
+    <div class="btn-group">
+      <div class="spinner" id="vinc-sa-spinner"></div>
+      <button class="btn btn-primary" onclick="vincularAlSA()">🔗 Vincular al SA</button>
+    </div>
+
+    <div class="result-panel" id="vinc-sa-result">
+      <div class="result-header"><span>Respuesta</span></div>
+      <pre id="vinc-sa-result-json"></pre>
+    </div>
+
+    <hr style="margin:32px 0; border:1px solid #E8E8F0;">
+
+    <!-- VINCULAR A LA APP -->
+    <h3 style="margin-bottom:12px; font-size:16px;">📱 Vincular a la Application (manual)</h3>
+    <div class="form-group">
+      <label>ID de la Application</label>
+      <input type="text" id="vinc-app-id" placeholder="Se llena automáticamente al crear la App">
+    </div>
+
+    <div class="form-group">
+      <label>Tipo de vinculación</label>
+      <select id="vinc-app-tipo">
+        <option value="funcionalidad">Funcionalidades → App</option>
+        <option value="deposito">Depósitos de Datos → App</option>
+        <option value="tecnologia">Tecnologías → App</option>
+        <option value="stack">Stack Tecnológico → App</option>
+        <option value="proceso_negocio">Proceso de Negocio → App</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>IDs a vincular (separados por coma)</label>
+      <input type="text" id="vinc-app-ids" placeholder="ID1, ID2, ID3">
+    </div>
+
+    <div class="btn-group">
+      <div class="spinner" id="vinc-app-spinner"></div>
+      <button class="btn btn-primary" onclick="vincularAlaApp()">🔗 Vincular a la App</button>
+    </div>
+
+    <div class="result-panel" id="vinc-app-result">
+      <div class="result-header"><span>Respuesta</span></div>
+      <pre id="vinc-app-result-json"></pre>
+    </div>
+
+    <hr style="margin:32px 0; border:1px solid #E8E8F0;">
+
+    <!-- ASIGNAR OWNERS -->
+    <h3 style="margin-bottom:12px; font-size:16px;">👤 Asignar Owners</h3>
+    <div class="form-group">
+      <label>ID de la Application</label>
+      <input type="text" id="owner-app-id" placeholder="Se llena automáticamente">
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Application Owner ID</label>
+        <input type="text" id="owner-app" placeholder="ID del App Owner">
+      </div>
+      <div class="form-group">
+        <label>IT Owner ID</label>
+        <input type="text" id="owner-it" placeholder="ID del IT Owner">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Business Owner ID</label>
+      <input type="text" id="owner-biz" placeholder="ID del Business Owner">
+    </div>
+
+    <div class="btn-group">
+      <div class="spinner" id="owner-spinner"></div>
+      <button class="btn btn-primary" onclick="asignarOwners()">👤 Asignar Owners</button>
+    </div>
+
+    <div class="result-panel" id="owner-result">
+      <div class="result-header"><span>Respuesta</span></div>
+      <pre id="owner-result-json"></pre>
+    </div>
+  </div>
+
+  <div class="btn-group">
+    <button class="btn btn-secondary" onclick="goToStep(9)">← Volver</button>
+    <button class="btn btn-primary" onclick="goToStep(11)">Continuar → Resumen Final</button>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<!-- PASO 3: CREAR SISTEMA APLICATIVO -->
+<div class="step-section" id="step-3">
+  <div class="card">
+    <div class="card-header">
+      <div class="icon blue">🏗️</div>
+      <div>
+        <h2>Paso 3 — Crear Sistema Aplicativo (ITARC)</h2>
+        <p>Contenedor arquitectónico que agrupa microservicios, servicios TI y entornos</p>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Nombre del Sistema Aplicativo *</label>
+        <input type="text" id="sa-name" value="SA Gastos Médicos Mayores">
+      </div>
+      <div class="form-group">
+        <label>Código *</label>
+        <input type="text" id="sa-code" value="SA-GMM-001">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Cloud Computing</label>
+      <select id="sa-cloud">
+        <option value="Cloud_PaaS" selected>Cloud PaaS</option>
+        <option value="Cloud_IaaS">Cloud IaaS</option>
+        <option value="Cloud_SaaS">Cloud SaaS</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Comentario / Componentes</label>
+      <textarea id="sa-comment" rows="4">Sistema Aplicativo para gestión integral de Gastos Médicos Mayores Individual
+
+Componentes: API Gateway, Microservicios (reembolsos, autorizaciones, red-medica, expediente), PubSub, Cloud SQL, Redis, Cloud Storage</textarea>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn btn-secondary" onclick="goToStep(2)">← Volver</button>
+      <div class="spinner" id="sa-spinner"></div>
+      <button class="btn btn-primary" onclick="crearSistema()">🚀 Crear Sistema Aplicativo</button>
+    </div>
+
+    <div class="result-panel" id="sa-result">
+      <div class="result-header"><span>Respuesta</span><span class="badge" id="sa-result-badge"></span></div>
+      <pre id="sa-result-json"></pre>
+    </div>
+  </div>
+
+  <div class="btn-group">
+    <button class="btn btn-primary" onclick="goToStep(4)">Continuar → Microservicios</button>
+  </div>
+</div>

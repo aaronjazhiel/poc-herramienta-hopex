@@ -1,0 +1,141 @@
+<!-- PASO 4: CREAR MICROSERVICIOS -->
+<div class="step-section" id="step-4">
+  <div class="card">
+    <div class="card-header">
+      <div class="icon orange">⚙️</div>
+      <div>
+        <h2>Paso 4 — Crear Microservicios (ITARC)</h2>
+        <p>Registrar cada microservicio que compone el sistema</p>
+      </div>
+    </div>
+
+    <div id="ms-container">
+      <div class="ms-entry" style="border:1px solid #E8E8F0; border-radius:8px; padding:20px; margin-bottom:16px;">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombre del Microservicio *</label>
+            <input type="text" class="ms-name" value="ms-gmm-reembolsos">
+          </div>
+          <div class="form-group">
+            <label>Cloud Run Service</label>
+            <input type="text" class="ms-service" value="ms-gmm-reembolsos">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>URL QA</label>
+            <input type="text" class="ms-url-qa" value="https://qa-gmm.gnp.com.mx/reembolsos/api/v1">
+          </div>
+          <div class="form-group">
+            <label>URL PRO</label>
+            <input type="text" class="ms-url-pro" value="https://gmm.gnp.com.mx/reembolsos/api/v1">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Gitlab</label>
+          <input type="text" class="ms-gitlab" value="https://gitlab.gnp.com.mx/gmm/ms-reembolsos">
+        </div>
+      </div>
+
+      <div class="ms-entry" style="border:1px solid #E8E8F0; border-radius:8px; padding:20px; margin-bottom:16px;">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombre del Microservicio *</label>
+            <input type="text" class="ms-name" value="ms-gmm-autorizaciones">
+          </div>
+          <div class="form-group">
+            <label>Cloud Run Service</label>
+            <input type="text" class="ms-service" value="ms-gmm-autorizaciones">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>URL QA</label>
+            <input type="text" class="ms-url-qa" value="https://qa-gmm.gnp.com.mx/autorizaciones/api/v1">
+          </div>
+          <div class="form-group">
+            <label>URL PRO</label>
+            <input type="text" class="ms-url-pro" value="https://gmm.gnp.com.mx/autorizaciones/api/v1">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Gitlab</label>
+          <input type="text" class="ms-gitlab" value="https://gitlab.gnp.com.mx/gmm/ms-autorizaciones">
+        </div>
+      </div>
+
+      <div class="ms-entry" style="border:1px solid #E8E8F0; border-radius:8px; padding:20px; margin-bottom:16px;">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombre del Microservicio *</label>
+            <input type="text" class="ms-name" value="ms-gmm-red-medica">
+          </div>
+          <div class="form-group">
+            <label>Cloud Run Service</label>
+            <input type="text" class="ms-service" value="ms-gmm-red-medica">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>URL QA</label>
+            <input type="text" class="ms-url-qa" value="https://qa-gmm.gnp.com.mx/red-medica/api/v1">
+          </div>
+          <div class="form-group">
+            <label>URL PRO</label>
+            <input type="text" class="ms-url-pro" value="https://gmm.gnp.com.mx/red-medica/api/v1">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Gitlab</label>
+          <input type="text" class="ms-gitlab" value="https://gitlab.gnp.com.mx/gmm/ms-red-medica">
+        </div>
+      </div>
+
+      <div class="ms-entry" style="border:1px solid #E8E8F0; border-radius:8px; padding:20px; margin-bottom:16px;">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombre del Microservicio *</label>
+            <input type="text" class="ms-name" value="ms-gmm-expediente-clinico">
+          </div>
+          <div class="form-group">
+            <label>Cloud Run Service</label>
+            <input type="text" class="ms-service" value="ms-gmm-expediente-clinico">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>URL QA</label>
+            <input type="text" class="ms-url-qa" value="https://qa-gmm.gnp.com.mx/expediente/api/v1">
+          </div>
+          <div class="form-group">
+            <label>URL PRO</label>
+            <input type="text" class="ms-url-pro" value="https://gmm.gnp.com.mx/expediente/api/v1">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Gitlab</label>
+          <input type="text" class="ms-gitlab" value="https://gitlab.gnp.com.mx/gmm/ms-expediente-clinico">
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-secondary" onclick="agregarMicroservicio()" style="margin-bottom:20px;">
+      ➕ Agregar otro microservicio
+    </button>
+
+    <div class="btn-group">
+      <button class="btn btn-secondary" onclick="goToStep(3)">← Volver</button>
+      <div class="spinner" id="ms-spinner"></div>
+      <button class="btn btn-primary" onclick="crearMicroservicios()">🚀 Crear Microservicios</button>
+    </div>
+
+    <div class="result-panel" id="ms-result">
+      <div class="result-header"><span>Respuesta</span><span class="badge" id="ms-result-badge"></span></div>
+      <pre id="ms-result-json"></pre>
+    </div>
+  </div>
+
+  <div class="btn-group">
+    <button class="btn btn-primary" onclick="goToStep(5)">Continuar → IT Services</button>
+  </div>
+</div>

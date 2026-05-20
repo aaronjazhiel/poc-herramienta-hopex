@@ -1,0 +1,106 @@
+<!-- PASO 6: CREAR FUNCIONALIDADES -->
+<div class="step-section" id="step-6">
+  <div class="card">
+    <div class="card-header">
+      <div class="icon green">🎯</div>
+      <div>
+        <h2>Paso 6 — Crear Funcionalidades (ITPM)</h2>
+        <p>Capacidades de negocio que ofrece la aplicación</p>
+      </div>
+    </div>
+
+    <div id="func-container">
+      <div class="func-entry" style="border:1px solid #E8E8F0; border-radius:8px; padding:20px; margin-bottom:16px;">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Funcionalidad *</label>
+            <input type="text" class="func-name" value="Solicitar reembolso de gastos médicos">
+          </div>
+          <div class="form-group">
+            <label>Descripción</label>
+            <input type="text" class="func-comment" value="Permite al asegurado iniciar trámite de reembolso con documentos soporte">
+          </div>
+        </div>
+      </div>
+      <div class="func-entry" style="border:1px solid #E8E8F0; border-radius:8px; padding:20px; margin-bottom:16px;">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Funcionalidad *</label>
+            <input type="text" class="func-name" value="Autorizar procedimiento médico">
+          </div>
+          <div class="form-group">
+            <label>Descripción</label>
+            <input type="text" class="func-comment" value="Gestión de cartas de autorización para hospitalización y cirugías">
+          </div>
+        </div>
+      </div>
+      <div class="func-entry" style="border:1px solid #E8E8F0; border-radius:8px; padding:20px; margin-bottom:16px;">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Funcionalidad *</label>
+            <input type="text" class="func-name" value="Consultar red médica y hospitales">
+          </div>
+          <div class="form-group">
+            <label>Descripción</label>
+            <input type="text" class="func-comment" value="Directorio de hospitales, médicos y laboratorios con convenio GNP">
+          </div>
+        </div>
+      </div>
+      <div class="func-entry" style="border:1px solid #E8E8F0; border-radius:8px; padding:20px; margin-bottom:16px;">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Funcionalidad *</label>
+            <input type="text" class="func-name" value="Consultar estatus de reembolso">
+          </div>
+          <div class="form-group">
+            <label>Descripción</label>
+            <input type="text" class="func-comment" value="Seguimiento en tiempo real del trámite de reembolso (recibido, en revisión, aprobado, pagado)">
+          </div>
+        </div>
+      </div>
+      <div class="func-entry" style="border:1px solid #E8E8F0; border-radius:8px; padding:20px; margin-bottom:16px;">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Funcionalidad *</label>
+            <input type="text" class="func-name" value="Gestionar expediente clínico digital">
+          </div>
+          <div class="form-group">
+            <label>Descripción</label>
+            <input type="text" class="func-comment" value="Almacenamiento y consulta de recetas, estudios, diagnósticos y facturas del asegurado">
+          </div>
+        </div>
+      </div>
+      <div class="func-entry" style="border:1px solid #E8E8F0; border-radius:8px; padding:20px; margin-bottom:16px;">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Funcionalidad *</label>
+            <input type="text" class="func-name" value="Validar cobertura de póliza">
+          </div>
+          <div class="form-group">
+            <label>Descripción</label>
+            <input type="text" class="func-comment" value="Verifica vigencia, suma asegurada disponible, deducible y coaseguro del asegurado">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-secondary" onclick="agregarFuncionalidad()" style="margin-bottom:20px;">
+      ➕ Agregar otra funcionalidad
+    </button>
+
+    <div class="btn-group">
+      <button class="btn btn-secondary" onclick="goToStep(5)">← Volver</button>
+      <div class="spinner" id="func-spinner"></div>
+      <button class="btn btn-primary" onclick="crearFuncionalidades()">🚀 Crear Funcionalidades</button>
+    </div>
+
+    <div class="result-panel" id="func-result">
+      <div class="result-header"><span>Respuesta</span></div>
+      <pre id="func-result-json"></pre>
+    </div>
+  </div>
+
+  <div class="btn-group">
+    <button class="btn btn-primary" onclick="goToStep(7)">Continuar → Depósitos de Datos</button>
+  </div>
+</div>

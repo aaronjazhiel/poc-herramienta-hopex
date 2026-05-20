@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HOPEX — Alta de Sistema Aplicativo | GNP</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/gnp-style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="/" class="navbar-brand">
+      <div class="logo">GNP</div>
+      <div>
+        <span>HOPEX — Alta de Sistema Aplicativo</span>
+        <p class="navbar-subtitle">POC Gastos Médicos Mayores | 11 Pasos</p>
+      </div>
+    </a>
+    <div style="display:flex; align-items:center; gap:12px;">
+      <span class="badge badge-info" id="health-badge">⏳ Verificando...</span>
+    </div>
+  </nav>
+
+  <!-- STEPPER COMPACTO (oculto hasta iniciar) -->
+  <div class="stepper" id="stepper" style="display:none;">
+    <div class="step-item"><div><div class="step-circle active" data-step="1" onclick="goToStep(1)">1</div><p class="step-label active">Validar</p></div></div>
+    <div class="step-connector" id="conn-1"></div>
+    <div class="step-item"><div><div class="step-circle" data-step="2" onclick="goToStep(2)">2</div><p class="step-label">App</p></div></div>
+    <div class="step-connector" id="conn-2"></div>
+    <div class="step-item"><div><div class="step-circle" data-step="3" onclick="goToStep(3)">3</div><p class="step-label">SA</p></div></div>
+    <div class="step-connector" id="conn-3"></div>
+    <div class="step-item"><div><div class="step-circle" data-step="4" onclick="goToStep(4)">4</div><p class="step-label">Micro</p></div></div>
+    <div class="step-connector" id="conn-4"></div>
+    <div class="step-item"><div><div class="step-circle" data-step="5" onclick="goToStep(5)">5</div><p class="step-label">ITSvc</p></div></div>
+    <div class="step-connector" id="conn-5"></div>
+    <div class="step-item"><div><div class="step-circle" data-step="6" onclick="goToStep(6)">6</div><p class="step-label">Func</p></div></div>
+    <div class="step-connector" id="conn-6"></div>
+    <div class="step-item"><div><div class="step-circle" data-step="7" onclick="goToStep(7)">7</div><p class="step-label">Datos</p></div></div>
+    <div class="step-connector" id="conn-7"></div>
+    <div class="step-item"><div><div class="step-circle" data-step="8" onclick="goToStep(8)">8</div><p class="step-label">Entornos</p></div></div>
+    <div class="step-connector" id="conn-8"></div>
+    <div class="step-item"><div><div class="step-circle" data-step="9" onclick="goToStep(9)">9</div><p class="step-label">SvcPts</p></div></div>
+    <div class="step-connector" id="conn-9"></div>
+    <div class="step-item"><div><div class="step-circle" data-step="10" onclick="goToStep(10)">10</div><p class="step-label">Vincular</p></div></div>
+    <div class="step-connector" id="conn-10"></div>
+    <div class="step-item"><div><div class="step-circle" data-step="11" onclick="goToStep(11)">11</div><p class="step-label">Estatus</p></div></div>
+  </div>
+
+  <!-- CONTENIDO DINÁMICO -->
+  <div class="main-content">
+    {% block content %}{% endblock %}
+  </div>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

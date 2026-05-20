@@ -1,0 +1,230 @@
+<!-- PASO 11: RESUMEN FINAL -->
+<div class="step-section" id="step-11">
+
+  <!-- HEADER RESUMEN -->
+  <div class="card" style="border-left:4px solid var(--gnp-success); background:linear-gradient(135deg, #f8fff8 0%, white 100%);">
+    <div class="card-header">
+      <div class="icon green">🏆</div>
+      <div>
+        <h2>Resumen Final — Todo lo Generado en HOPEX</h2>
+        <p>Vista ejecutiva de los objetos creados durante esta sesión</p>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:16px; margin-bottom:20px;">
+      <div style="background:var(--gnp-orange-light); padding:16px; border-radius:8px; text-align:center;">
+        <div style="font-size:28px; font-weight:800; color:var(--gnp-orange);" id="count-total">0</div>
+        <div style="font-size:11px; color:var(--gnp-gray); font-weight:600;">OBJETOS CREADOS</div>
+      </div>
+      <div style="background:#E8FFF5; padding:16px; border-radius:8px; text-align:center;">
+        <div style="font-size:28px; font-weight:800; color:var(--gnp-success);" id="count-vinc">0</div>
+        <div style="font-size:11px; color:var(--gnp-gray); font-weight:600;">VINCULACIONES</div>
+      </div>
+      <div style="background:#EBF5FF; padding:16px; border-radius:8px; text-align:center;">
+        <div style="font-size:28px; font-weight:800; color:var(--gnp-info);" id="count-apis">0</div>
+        <div style="font-size:11px; color:var(--gnp-gray); font-weight:600;">LLAMADAS API</div>
+      </div>
+      <div style="background:var(--gnp-gray-light); padding:16px; border-radius:8px; text-align:center;">
+        <div style="font-size:28px; font-weight:800; color:var(--gnp-gray);" id="count-endpoints">2</div>
+        <div style="font-size:11px; color:var(--gnp-gray); font-weight:600;">ENDPOINTS USADOS</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIMELINE DE PROGRESO -->
+  <div class="card">
+    <div class="card-header">
+      <div class="icon orange">📊</div>
+      <div>
+        <h2>Progreso del Registro</h2>
+        <p>Estado de cada paso del flujo</p>
+      </div>
+    </div>
+
+    <div class="timeline" id="status-timeline">
+      <div class="timeline-item pending"><h4>1. Validación</h4><p id="tl-1">Pendiente</p></div>
+      <div class="timeline-item pending"><h4>2. Application (ITPM)</h4><p id="tl-2">Pendiente</p></div>
+      <div class="timeline-item pending"><h4>3. Sistema Aplicativo (ITARC)</h4><p id="tl-3">Pendiente</p></div>
+      <div class="timeline-item pending"><h4>4. Microservicios (ITARC)</h4><p id="tl-4">Pendiente</p></div>
+      <div class="timeline-item pending"><h4>5. IT Services (ITARC)</h4><p id="tl-5">Pendiente</p></div>
+      <div class="timeline-item pending"><h4>6. Funcionalidades (ITPM)</h4><p id="tl-6">Pendiente</p></div>
+      <div class="timeline-item pending"><h4>7. Depósitos de Datos (ITARC)</h4><p id="tl-7">Pendiente</p></div>
+      <div class="timeline-item pending"><h4>8. Entornos (ITARC)</h4><p id="tl-8">Pendiente</p></div>
+      <div class="timeline-item pending"><h4>9. Service Points (ITARC)</h4><p id="tl-9">Pendiente</p></div>
+      <div class="timeline-item pending"><h4>10. Vinculaciones + Owners</h4><p id="tl-10">Pendiente</p></div>
+    </div>
+  </div>
+
+  <!-- TABLA DE TODOS LOS OBJETOS CREADOS -->
+  <div class="card">
+    <div class="card-header">
+      <div class="icon blue">📋</div>
+      <div>
+        <h2>Inventario de Objetos en HOPEX</h2>
+        <p>Todos los IDs generados — guardar para referencia futura</p>
+      </div>
+    </div>
+
+    <div style="overflow-x:auto;">
+      <table style="width:100%; border-collapse:collapse; font-size:13px;" id="final-table">
+        <thead>
+          <tr style="border-bottom:2px solid #E8E8F0; text-align:left; background:var(--gnp-gray-light);">
+            <th style="padding:12px;">#</th>
+            <th style="padding:12px;">Tipo</th>
+            <th style="padding:12px;">Nombre</th>
+            <th style="padding:12px;">ID HOPEX</th>
+            <th style="padding:12px;">Módulo</th>
+            <th style="padding:12px;">Estatus</th>
+          </tr>
+        </thead>
+        <tbody id="status-table"></tbody>
+      </table>
+    </div>
+    <p style="margin-top:12px; font-size:11px; color:#999;">La tabla se actualiza automáticamente conforme se crean objetos en cada paso</p>
+  </div>
+
+  <!-- ARQUITECTURA GENERADA -->
+  <div class="card">
+    <div class="card-header">
+      <div class="icon green">🏗️</div>
+      <div>
+        <h2>Arquitectura Generada</h2>
+        <p>Diagrama de relaciones entre los objetos creados</p>
+      </div>
+    </div>
+
+    <div style="background:var(--gnp-dark); border-radius:8px; padding:24px; color:white; font-family:'JetBrains Mono', monospace; font-size:12px; line-height:2;">
+      <pre style="color:#A8E6CF;" id="arch-diagram">
+┌─────────────────────────────────────────────────────────┐
+│  📱 APPLICATION (ITPM)                                   │
+│  Cotizador Seguros Vivienda API                         │
+│  Código: APP-CSV-API-001                                │
+├─────────────────────────────────────────────────────────┤
+│  🎯 Funcionalidades:                                    │
+│     • Cotizar seguro de vivienda                        │
+│     • Calcular prima de vivienda                        │
+│     • Emitir póliza de vivienda                         │
+│     • Consultar histórico                               │
+│     • Validar elegibilidad de inmueble                  │
+└───────────────────────┬─────────────────────────────────┘
+                        │ contiene
+┌───────────────────────▼─────────────────────────────────┐
+│  🏗️ SISTEMA APLICATIVO (ITARC)                          │
+│  SA Cotizador Seguros Vivienda                          │
+│  Código: SA-CSV-001                                     │
+├─────────────────────────────────────────────────────────┤
+│                                                         │
+│  ⚙️ Microservicios:                                     │
+│  ┌──────────────┐ ┌──────────────┐ ┌──────────────┐   │
+│  │ ms-pricing   │ │ms-validation │ │ ms-pdf-gen   │   │
+│  └──────────────┘ └──────────────┘ └──────────────┘   │
+│                                                         │
+│  ☁️ IT Services:                                        │
+│  ┌──────────────┐ ┌──────────────┐ ┌──────────────┐   │
+│  │   PubSub     │ │ Notificación │ │ Recordatorio │   │
+│  └──────────────┘ └──────────────┘ └──────────────┘   │
+│                                                         │
+│  🗄️ Depósitos:                                          │
+│  ┌──────────────┐ ┌──────────────┐ ┌──────────────┐   │
+│  │  Cloud SQL   │ │    Redis     │ │Cloud Storage │   │
+│  └──────────────┘ └──────────────┘ └──────────────┘   │
+│                                                         │
+│  🌐 Entornos:                                           │
+│  ┌──────────────┐ ┌──────────────┐ ┌──────────────┐   │
+│  │     QA       │ │     UAT      │ │     PRO      │   │
+│  └──────────────┘ └──────────────┘ └──────────────┘   │
+│                                                         │
+│  🔌 Service Points:                                     │
+│     POST /api/v1/cotizaciones/vivienda                  │
+│     GET  /api/v1/cotizaciones/vivienda/{id}             │
+│     GET  /api/v1/cotizaciones/vivienda/historico        │
+│     POST /api/v1/vivienda/validar-inmueble              │
+│                                                         │
+└─────────────────────────────────────────────────────────┘
+      </pre>
+    </div>
+  </div>
+
+  <!-- FLUJO DE APIs -->
+  <div class="card">
+    <div class="card-header">
+      <div class="icon orange">🔄</div>
+      <div>
+        <h2>Flujo de APIs Ejecutadas</h2>
+        <p>Secuencia de llamadas realizadas al API GraphQL de HOPEX</p>
+      </div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:6px; align-items:center; font-size:12px;">
+      <div style="background:var(--gnp-orange-light); padding:8px 16px; border-radius:6px; text-align:center; width:100%; max-width:600px;">
+        <strong style="color:var(--gnp-orange);">1.</strong> POST /ITPM — query { application(filter: {name_contains: "Vivienda"}) }
+      </div>
+      <div>↓</div>
+      <div style="background:#E8FFF5; padding:8px 16px; border-radius:6px; text-align:center; width:100%; max-width:600px;">
+        <strong style="color:var(--gnp-success);">2.</strong> POST /ITPM — mutation { createApplication(...) }
+      </div>
+      <div>↓</div>
+      <div style="background:#EBF5FF; padding:8px 16px; border-radius:6px; text-align:center; width:100%; max-width:600px;">
+        <strong style="color:var(--gnp-info);">3.</strong> POST /ITARC — mutation { createApplicationSystem(...) }
+      </div>
+      <div>↓</div>
+      <div style="background:var(--gnp-orange-light); padding:8px 16px; border-radius:6px; text-align:center; width:100%; max-width:600px;">
+        <strong style="color:var(--gnp-orange);">4.</strong> POST /ITARC — mutation { createMicroService(...) } × 3
+      </div>
+      <div>↓</div>
+      <div style="background:#EBF5FF; padding:8px 16px; border-radius:6px; text-align:center; width:100%; max-width:600px;">
+        <strong style="color:var(--gnp-info);">5.</strong> POST /ITARC — mutation { createITService(...) } × 4
+      </div>
+      <div>↓</div>
+      <div style="background:#E8FFF5; padding:8px 16px; border-radius:6px; text-align:center; width:100%; max-width:600px;">
+        <strong style="color:var(--gnp-success);">6.</strong> POST /ITPM — mutation { createFunctionality(...) } × 5
+      </div>
+      <div>↓</div>
+      <div style="background:var(--gnp-orange-light); padding:8px 16px; border-radius:6px; text-align:center; width:100%; max-width:600px;">
+        <strong style="color:var(--gnp-orange);">7.</strong> POST /ITARC — mutation { createRelationalDataArea / NoSQL / FileStructure } × 3
+      </div>
+      <div>↓</div>
+      <div style="background:#EBF5FF; padding:8px 16px; border-radius:6px; text-align:center; width:100%; max-width:600px;">
+        <strong style="color:var(--gnp-info);">8.</strong> POST /ITARC — mutation { createApplicationSystemEnvironment(...) } × 3
+      </div>
+      <div>↓</div>
+      <div style="background:var(--gnp-orange-light); padding:8px 16px; border-radius:6px; text-align:center; width:100%; max-width:600px;">
+        <strong style="color:var(--gnp-orange);">9.</strong> POST /ITARC — mutation { createServicePoint(...) } × 4
+      </div>
+      <div>↓</div>
+      <div style="background:#E8FFF5; padding:8px 16px; border-radius:6px; text-align:center; width:100%; max-width:600px;">
+        <strong style="color:var(--gnp-success);">10.</strong> POST /ITARC + /ITPM — mutation { updateApplicationSystem / updateApplication }
+      </div>
+      <div>↓</div>
+      <div style="background:#E8FFF5; padding:8px 16px; border-radius:6px; text-align:center; width:100%; max-width:600px; border:2px solid var(--gnp-success);">
+        <strong style="color:var(--gnp-success);">✅ REGISTRO COMPLETO — ~25 llamadas API en total</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONSULTAR EN VIVO -->
+  <div class="card">
+    <div class="card-header">
+      <div class="icon blue">🔍</div>
+      <div>
+        <h2>Verificar en HOPEX (en vivo)</h2>
+        <p>Consultar el estatus actual de los objetos creados</p>
+      </div>
+    </div>
+
+    <div class="btn-group" style="justify-content:flex-start;">
+      <button class="btn btn-primary" onclick="consultarEstatus()">🔍 Consultar Application</button>
+      <button class="btn btn-secondary" onclick="consultarSA()">🔍 Consultar SA</button>
+      <button class="btn btn-secondary" onclick="exportarJSON()">📥 Exportar JSON</button>
+    </div>
+
+    <div class="result-panel" id="estatus-consulta-result">
+      <div class="result-header"><span>Respuesta en vivo de HOPEX</span></div>
+      <pre id="estatus-consulta-result-json"></pre>
+    </div>
+  </div>
+
+  <div class="btn-group">
+    <button class="btn btn-secondary" onclick="goToStep(1)">🔄 Reiniciar Proceso</button>
+  </div>
+</div>

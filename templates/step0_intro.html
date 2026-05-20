@@ -1,0 +1,214 @@
+<!-- INTRODUCCIÓN Y ALCANCE -->
+<div class="step-section active" id="step-intro">
+  <div class="card" style="border-left: 4px solid var(--gnp-orange);">
+    <div class="card-header">
+      <div class="icon orange">🚀</div>
+      <div>
+        <h2>Alta de Sistema Aplicativo vía API — HOPEX GraphQL</h2>
+        <p>Automatización del registro de aplicaciones en la plataforma de arquitectura empresarial</p>
+      </div>
+    </div>
+
+    <p style="font-size:14px; line-height:1.7; color:var(--gnp-gray); margin-bottom:20px;">
+      Este flujo demuestra cómo registrar un <strong>Sistema Aplicativo completo</strong> en HOPEX 
+      utilizando exclusivamente las <strong>APIs GraphQL</strong> expuestas en Pre-Producción. 
+      El proceso cubre desde la validación de existencia hasta la vinculación de todos los componentes 
+      y asignación de responsables, eliminando la necesidad de captura manual en la interfaz web de HOPEX.
+    </p>
+
+    <div style="background:var(--gnp-orange-light); padding:16px 20px; border-radius:8px; margin-bottom:24px;">
+      <strong style="color:var(--gnp-orange);">📌 Ambiente:</strong> Pre-Producción (pprod-gnp.hopexcloud.com)<br>
+      <strong style="color:var(--gnp-orange);">🔑 Autenticación:</strong> Header <code>x-api-key</code><br>
+      <strong style="color:var(--gnp-orange);">📡 Método:</strong> POST con body JSON (GraphQL queries/mutations)<br>
+      <strong style="color:var(--gnp-orange);">📦 Módulos:</strong> ITPM (Portfolio) + ITARC (Arquitectura)
+    </div>
+  </div>
+
+  <!-- LO QUE SÍ SE PUEDE HACER -->
+  <div class="card" style="border-left: 4px solid var(--gnp-success);">
+    <div class="card-header">
+      <div class="icon green">✅</div>
+      <div>
+        <h2>Lo que SÍ se puede hacer con las APIs</h2>
+        <p>Operaciones validadas y funcionales en Pre-Producción</p>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; font-size:13px;">
+      <!-- Columna 1 -->
+      <div>
+        <h4 style="color:var(--gnp-success); margin-bottom:8px;">📱 ITPM (Portfolio)</h4>
+        <ul style="list-style:none; padding:0;">
+          <li style="padding:6px 0; border-bottom:1px solid #f0f0f0;">✅ Crear Application</li>
+          <li style="padding:6px 0; border-bottom:1px solid #f0f0f0;">✅ Crear Funcionalidades</li>
+          <li style="padding:6px 0; border-bottom:1px solid #f0f0f0;">✅ Vincular proceso de negocio</li>
+          <li style="padding:6px 0; border-bottom:1px solid #f0f0f0;">✅ Vincular stack tecnológico</li>
+          <li style="padding:6px 0; border-bottom:1px solid #f0f0f0;">✅ Vincular tecnologías (Java, Cloud Run, etc.)</li>
+          <li style="padding:6px 0; border-bottom:1px solid #f0f0f0;">✅ Vincular funcionalidades a la App</li>
+          <li style="padding:6px 0; border-bottom:1px solid #f0f0f0;">✅ Vincular depósitos de datos a la App</li>
+          <li style="padding:6px 0; border-bottom:1px solid #f0f0f0;">✅ Asignar Application Owner</li>
+          <li style="padding:6px 0; border-bottom:1px solid #f0f0f0;">✅ Asignar IT Owner</li>
+          <li style="padding:6px 0;">✅ Asignar Business Owner</li>
+        </ul>
+      </div>
+      <!-- Columna 2 -->
+      <div>
+        <h4 style="color:var(--gnp-info); margin-bottom:8px;">🏗️ ITARC (Arquitectura)</h4>
+        <ul style="list-style:none; padding:0;">
+          <li style="padding:6px 0; border-bottom:1px solid #f0f0f0;">✅ Crear Sistema Aplicativo</li>
+          <li style="padding:6px 0; border-bottom:1px solid #f0f0f0;">✅ Crear Microservicios</li>
+          <li style="padding:6px 0; border-bottom:1px solid #f0f0f0;">✅ Crear IT Services (PubSub, Functions, etc.)</li>
+          <li style="padding:6px 0; border-bottom:1px solid #f0f0f0;">✅ Crear Depósitos Relacionales (Cloud SQL)</li>
+          <li style="padding:6px 0; border-bottom:1px solid #f0f0f0;">✅ Crear Depósitos NoSQL (Redis, Firestore)</li>
+          <li style="padding:6px 0; border-bottom:1px solid #f0f0f0;">✅ Crear Depósitos de Archivos (Cloud Storage)</li>
+          <li style="padding:6px 0; border-bottom:1px solid #f0f0f0;">✅ Crear Entornos (QA, UAT, PRO)</li>
+          <li style="padding:6px 0; border-bottom:1px solid #f0f0f0;">✅ Crear Service Points (endpoints API)</li>
+          <li style="padding:6px 0; border-bottom:1px solid #f0f0f0;">✅ Crear Escenarios de Flujos</li>
+          <li style="padding:6px 0; border-bottom:1px solid #f0f0f0;">✅ Vincular microservicios al SA</li>
+          <li style="padding:6px 0; border-bottom:1px solid #f0f0f0;">✅ Vincular entornos al SA</li>
+          <li style="padding:6px 0;">✅ Vincular depósitos tipados al SA</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:20px;">
+      <h4 style="color:var(--gnp-success); margin-bottom:8px;">🔍 Validación y Auditoría</h4>
+      <ul style="list-style:none; padding:0; font-size:13px;">
+        <li style="padding:6px 0; border-bottom:1px solid #f0f0f0;">✅ Buscar por nombre exacto o parcial (name_contains)</li>
+        <li style="padding:6px 0; border-bottom:1px solid #f0f0f0;">✅ Buscar por ID o código de aplicación</li>
+        <li style="padding:6px 0; border-bottom:1px solid #f0f0f0;">✅ Consultar quién creó un objeto (creator)</li>
+        <li style="padding:6px 0; border-bottom:1px solid #f0f0f0;">✅ Consultar quién modificó un objeto (modifier)</li>
+        <li style="padding:6px 0;">✅ Consultar fechas de creación y modificación</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- LO QUE NO SE PUEDE HACER -->
+  <div class="card" style="border-left: 4px solid var(--gnp-error);">
+    <div class="card-header">
+      <div class="icon red">❌</div>
+      <div>
+        <h2>Lo que NO se puede hacer con las APIs</h2>
+        <p>Limitaciones identificadas durante la POC</p>
+      </div>
+    </div>
+
+    <ul style="list-style:none; padding:0; font-size:13px;">
+      <li style="padding:10px 0; border-bottom:1px solid #f0f0f0;">
+        <strong style="color:var(--gnp-error);">❌ Eliminar objetos</strong><br>
+        <span style="color:var(--gnp-gray);">No existe mutation de delete en la API GraphQL. Solo se puede desde la UI de administración de HOPEX.</span>
+      </li>
+      <li style="padding:10px 0; border-bottom:1px solid #f0f0f0;">
+        <strong style="color:var(--gnp-error);">❌ Saber quién borró un objeto</strong><br>
+        <span style="color:var(--gnp-gray);">No hay endpoint de auditoría de eliminaciones. El Repository Log solo es accesible desde la UI admin.</span>
+      </li>
+      <li style="padding:10px 0; border-bottom:1px solid #f0f0f0;">
+        <strong style="color:var(--gnp-error);">❌ Gestionar permisos / roles de usuarios</strong><br>
+        <span style="color:var(--gnp-gray);">La administración de usuarios y permisos es exclusiva de la consola de administración.</span>
+      </li>
+      <li style="padding:10px 0; border-bottom:1px solid #f0f0f0;">
+        <strong style="color:var(--gnp-error);">❌ Acceder al Repository Log completo</strong><br>
+        <span style="color:var(--gnp-gray);">El historial completo de cambios (quién hizo qué y cuándo) no está expuesto vía API.</span>
+      </li>
+      <li style="padding:10px 0; border-bottom:1px solid #f0f0f0;">
+        <strong style="color:var(--gnp-error);">❌ Generar diagramas o vistas gráficas</strong><br>
+        <span style="color:var(--gnp-gray);">Los diagramas de arquitectura solo se generan desde la interfaz web de HOPEX.</span>
+      </li>
+      <li style="padding:10px 0; border-bottom:1px solid #f0f0f0;">
+        <strong style="color:var(--gnp-error);">❌ Ejecutar workflows de aprobación</strong><br>
+        <span style="color:var(--gnp-gray);">Los flujos de aprobación (statusReview → Approved) requieren intervención manual en la UI.</span>
+      </li>
+      <li style="padding:10px 0; border-bottom:1px solid #f0f0f0;">
+        <strong style="color:var(--gnp-error);">❌ Crear/modificar el esquema GraphQL</strong><br>
+        <span style="color:var(--gnp-gray);">El schema está definido por MEGA (proveedor de HOPEX) y no es extensible vía API.</span>
+      </li>
+      <li style="padding:10px 0; border-bottom:1px solid #f0f0f0;">
+        <strong style="color:var(--gnp-error);">❌ Exportar reportes o dashboards</strong><br>
+        <span style="color:var(--gnp-gray);">Los reportes predefinidos solo se exportan desde la UI web.</span>
+      </li>
+      <li style="padding:10px 0;">
+        <strong style="color:var(--gnp-error);">❌ Mover objetos entre ambientes (pprod → prod)</strong><br>
+        <span style="color:var(--gnp-gray);">La promoción entre ambientes es un proceso administrado por el equipo de HOPEX/MEGA.</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- RESUMEN DEL FLUJO -->
+  <div class="card" style="border-left: 4px solid var(--gnp-info);">
+    <div class="card-header">
+      <div class="icon blue">📋</div>
+      <div>
+        <h2>Flujo de 11 Pasos</h2>
+        <p>Secuencia completa para registrar un Sistema Aplicativo</p>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:auto 1fr auto; gap:8px 16px; font-size:13px; align-items:center;">
+      <span class="badge badge-info">Paso 1</span><span>Validar que no exista el sistema/aplicación</span><span style="color:#999;">query</span>
+      <span class="badge badge-info">Paso 2</span><span>Crear Application en ITPM</span><span style="color:#999;">mutation</span>
+      <span class="badge badge-info">Paso 3</span><span>Crear Sistema Aplicativo en ITARC</span><span style="color:#999;">mutation</span>
+      <span class="badge badge-info">Paso 4</span><span>Crear Microservicios en ITARC</span><span style="color:#999;">mutation × N</span>
+      <span class="badge badge-info">Paso 5</span><span>Crear IT Services (PubSub, Functions, APIs)</span><span style="color:#999;">mutation × N</span>
+      <span class="badge badge-info">Paso 6</span><span>Crear Funcionalidades en ITPM</span><span style="color:#999;">mutation × N</span>
+      <span class="badge badge-info">Paso 7</span><span>Crear Depósitos de Datos (SQL, NoSQL, Storage)</span><span style="color:#999;">mutation × N</span>
+      <span class="badge badge-info">Paso 8</span><span>Crear Entornos (QA, UAT, PRO)</span><span style="color:#999;">mutation × 3</span>
+      <span class="badge badge-info">Paso 9</span><span>Crear Service Points (endpoints API)</span><span style="color:#999;">mutation × N</span>
+      <span class="badge badge-info">Paso 10</span><span>Vincular todo al SA + App + Asignar Owners</span><span style="color:#999;">mutation</span>
+      <span class="badge badge-info">Paso 11</span><span>Consultar estatus final y resumen de IDs</span><span style="color:#999;">query</span>
+    </div>
+  </div>
+
+  <!-- DATOS TÉCNICOS -->
+  <div class="card" style="border-left: 4px solid var(--gnp-gray);">
+    <div class="card-header">
+      <div class="icon orange">⚡</div>
+      <div>
+        <h2>Datos Técnicos de la Integración</h2>
+        <p>Información para el equipo de desarrollo</p>
+      </div>
+    </div>
+
+    <div style="font-size:13px;">
+      <table style="width:100%; border-collapse:collapse;">
+        <tr style="border-bottom:1px solid #f0f0f0;">
+          <td style="padding:8px; font-weight:600; width:200px;">Base URL</td>
+          <td style="padding:8px; font-family:monospace; font-size:12px;">https://pprod-gnp.hopexcloud.com/HOPEXGraphQL/api</td>
+        </tr>
+        <tr style="border-bottom:1px solid #f0f0f0;">
+          <td style="padding:8px; font-weight:600;">Endpoints</td>
+          <td style="padding:8px; font-family:monospace; font-size:12px;">/ITPM (Portfolio) &nbsp;|&nbsp; /ITARC (Arquitectura)</td>
+        </tr>
+        <tr style="border-bottom:1px solid #f0f0f0;">
+          <td style="padding:8px; font-weight:600;">Autenticación</td>
+          <td style="padding:8px; font-family:monospace; font-size:12px;">Header: x-api-key: &lt;TOKEN&gt;</td>
+        </tr>
+        <tr style="border-bottom:1px solid #f0f0f0;">
+          <td style="padding:8px; font-weight:600;">Content-Type</td>
+          <td style="padding:8px; font-family:monospace; font-size:12px;">application/json</td>
+        </tr>
+        <tr style="border-bottom:1px solid #f0f0f0;">
+          <td style="padding:8px; font-weight:600;">Método</td>
+          <td style="padding:8px;">POST (siempre, tanto queries como mutations)</td>
+        </tr>
+        <tr style="border-bottom:1px solid #f0f0f0;">
+          <td style="padding:8px; font-weight:600;">Body</td>
+          <td style="padding:8px; font-family:monospace; font-size:12px;">{ "query": "...", "variables": {} }</td>
+        </tr>
+        <tr>
+          <td style="padding:8px; font-weight:600;">Validado por</td>
+          <td style="padding:8px;">Aaron Delgado — 2026</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- BOTÓN INICIAR -->
+  <div style="text-align:center; margin-top:32px;">
+    <button class="btn btn-primary" onclick="iniciarProceso()" style="padding:16px 48px; font-size:16px;">
+      🚀 Iniciar Proceso de Alta
+    </button>
+    <p style="margin-top:12px; font-size:12px; color:var(--gnp-gray);">
+      Los formularios vienen pre-llenados con ejemplo de "Gastos Médicos Mayores" — solo modifica lo necesario
+    </p>
+  </div>
+</div>

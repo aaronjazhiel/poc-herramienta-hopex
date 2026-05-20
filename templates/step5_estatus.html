@@ -1,0 +1,119 @@
+<!-- PASO 5: ESTATUS FINAL -->
+<div class="step-section" id="step-5">
+  <div class="card">
+    <div class="card-header">
+      <div class="icon green">✅</div>
+      <div>
+        <h2>Paso 5 — Estatus del Registro</h2>
+        <p>Resumen de todos los objetos creados en HOPEX</p>
+      </div>
+    </div>
+
+    <!-- Timeline de creación -->
+    <div class="timeline" id="status-timeline">
+      <div class="timeline-item pending">
+        <h4>1. Validación</h4>
+        <p>Pendiente de ejecutar</p>
+      </div>
+      <div class="timeline-item pending">
+        <h4>2. Application (ITPM)</h4>
+        <p>Pendiente de crear</p>
+      </div>
+      <div class="timeline-item pending">
+        <h4>3. Sistema Aplicativo (ITARC)</h4>
+        <p>Pendiente de crear</p>
+      </div>
+      <div class="timeline-item pending">
+        <h4>4. Microservicios (ITARC)</h4>
+        <p>Pendiente de crear</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Resumen de IDs creados -->
+  <div class="card">
+    <div class="card-header">
+      <div class="icon blue">📋</div>
+      <div>
+        <h2>IDs Generados</h2>
+        <p>Identificadores de los objetos creados para referencia futura</p>
+      </div>
+    </div>
+
+    <table style="width:100%; border-collapse:collapse; font-size:13px;">
+      <thead>
+        <tr style="border-bottom:2px solid #E8E8F0; text-align:left;">
+          <th style="padding:10px;">Objeto</th>
+          <th style="padding:10px;">Nombre</th>
+          <th style="padding:10px;">ID HOPEX</th>
+          <th style="padding:10px;">Estatus</th>
+        </tr>
+      </thead>
+      <tbody id="status-table">
+        <tr>
+          <td style="padding:10px;">Application</td>
+          <td style="padding:10px;" id="st-app-name">—</td>
+          <td style="padding:10px; font-family:monospace;" id="st-app-id">—</td>
+          <td style="padding:10px;"><span class="badge badge-warning">⏳ Pendiente</span></td>
+        </tr>
+        <tr>
+          <td style="padding:10px;">Sistema Aplicativo</td>
+          <td style="padding:10px;" id="st-sa-name">—</td>
+          <td style="padding:10px; font-family:monospace;" id="st-sa-id">—</td>
+          <td style="padding:10px;"><span class="badge badge-warning">⏳ Pendiente</span></td>
+        </tr>
+        <tr>
+          <td style="padding:10px;">Microservicios</td>
+          <td style="padding:10px;" id="st-ms-name">—</td>
+          <td style="padding:10px; font-family:monospace;" id="st-ms-id">—</td>
+          <td style="padding:10px;"><span class="badge badge-warning">⏳ Pendiente</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Diagrama de flujo resumen -->
+  <div class="card">
+    <div class="card-header">
+      <div class="icon orange">🔄</div>
+      <div>
+        <h2>Flujo de APIs Invocadas</h2>
+        <p>Secuencia de llamadas realizadas al API de HOPEX</p>
+      </div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:12px; align-items:center;">
+      <div style="background:var(--gnp-orange-light); padding:12px 24px; border-radius:8px; text-align:center; width:100%; max-width:500px;">
+        <strong style="color:var(--gnp-orange);">POST /ITPM</strong><br>
+        <small>query { application(filter: {name_contains}) }</small>
+      </div>
+      <div style="font-size:20px;">↓</div>
+      <div style="background:#E8FFF5; padding:12px 24px; border-radius:8px; text-align:center; width:100%; max-width:500px;">
+        <strong style="color:var(--gnp-success);">POST /ITPM</strong><br>
+        <small>mutation { createApplication(...) }</small>
+      </div>
+      <div style="font-size:20px;">↓</div>
+      <div style="background:#EBF5FF; padding:12px 24px; border-radius:8px; text-align:center; width:100%; max-width:500px;">
+        <strong style="color:var(--gnp-info);">POST /ITARC</strong><br>
+        <small>mutation { createApplicationSystem(...) }</small>
+      </div>
+      <div style="font-size:20px;">↓</div>
+      <div style="background:#FFF3EB; padding:12px 24px; border-radius:8px; text-align:center; width:100%; max-width:500px;">
+        <strong style="color:var(--gnp-orange);">POST /ITARC</strong><br>
+        <small>mutation { createMicroService(...) } × N</small>
+      </div>
+      <div style="font-size:20px;">↓</div>
+      <div style="background:#E8FFF5; padding:12px 24px; border-radius:8px; text-align:center; width:100%; max-width:500px; border:2px solid var(--gnp-success);">
+        <strong style="color:var(--gnp-success);">✅ Registro Completo</strong><br>
+        <small>Todos los objetos vinculados en HOPEX</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="btn-group">
+    <button class="btn btn-secondary" onclick="goToStep(1)">🔄 Reiniciar Proceso</button>
+    <button class="btn btn-primary" onclick="consultarEstatus()">
+      🔍 Consultar Estatus en HOPEX
+    </button>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+<!-- PASO 1: VALIDACIÓN -->
+<div class="step-section" id="step-1">
+  <div class="card">
+    <div class="card-header">
+      <div class="icon orange">🔍</div>
+      <div>
+        <h2>Paso 1 — Validación de Existencia</h2>
+        <p>Verificar si la aplicación o sistema ya existe en HOPEX antes de crear</p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>¿Qué deseas validar?</label>
+      <select id="val-tipo" onchange="updateValidationPreview()">
+        <option value="application">Application (ITPM)</option>
+        <option value="applicationSystem">Sistema Aplicativo (ITARC)</option>
+        <option value="microService">Microservicio (ITARC)</option>
+        <option value="iTService">IT Service (ITARC)</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Nombre a buscar</label>
+      <input type="text" id="val-nombre" value="Cotizador Seguros Vivienda" oninput="updateValidationPreview()">
+      <span class="hint">Se usa filtro name_contains para búsqueda parcial</span>
+    </div>
+
+    <div class="form-group">
+      <label>API Endpoint</label>
+      <div style="background:#F5F5FA; padding:12px; border-radius:8px; font-size:12px; font-family:monospace;">
+        POST https://pprod-gnp.hopexcloud.com/HOPEXGraphQL/api/<strong id="val-endpoint-display">ITPM</strong>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Query GraphQL</label>
+      <div class="result-panel visible" style="display:block">
+        <pre id="val-query-preview">query {
+  application(filter: { name_contains: "Cotizador Seguros Vivienda" }) {
+    id
+    name
+    creationDate
+    creator { id name }
+  }
+}</pre>
+      </div>
+    </div>
+
+    <div class="btn-group">
+      <div class="spinner" id="val-spinner"></div>
+      <button class="btn btn-primary" onclick="ejecutarValidacion()">🔍 Validar en HOPEX</button>
+    </div>
+
+    <div class="result-panel" id="val-result">
+      <div class="result-header">
+        <span>Respuesta de HOPEX</span>
+        <span class="badge" id="val-result-badge"></span>
+      </div>
+      <pre id="val-result-json"></pre>
+    </div>
+  </div>
+
+  <div class="btn-group">
+    <button class="btn btn-primary" onclick="goToStep(2)">Continuar → Crear Application</button>
+  </div>
+</div>

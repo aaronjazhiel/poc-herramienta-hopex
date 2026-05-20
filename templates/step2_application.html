@@ -1,0 +1,88 @@
+<!-- PASO 2: CREAR APPLICATION -->
+<div class="step-section" id="step-2">
+  <div class="card">
+    <div class="card-header">
+      <div class="icon green">📱</div>
+      <div>
+        <h2>Paso 2 — Crear Application (ITPM)</h2>
+        <p>Registrar la aplicación principal en el módulo ITPM de HOPEX</p>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Nombre de la Aplicación *</label>
+        <input type="text" id="app-name" value="Gastos Médicos Mayores API">
+      </div>
+      <div class="form-group">
+        <label>Código de Aplicación *</label>
+        <input type="text" id="app-code" value="APP-GMM-API-001">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Cloud Computing</label>
+        <select id="app-cloud">
+          <option value="Cloud_PaaS" selected>Cloud PaaS</option>
+          <option value="Cloud_IaaS">Cloud IaaS</option>
+          <option value="Cloud_SaaS">Cloud SaaS</option>
+          <option value="OnPremise">On Premise</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Tipo de Aplicación</label>
+        <select id="app-type">
+          <option value="InHouseApplication" selected>In-House Application</option>
+          <option value="COTS">COTS</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Comentario / Descripción</label>
+      <textarea id="app-comment" rows="8">Descripción: API REST para gestión de reembolsos y autorizaciones de Gastos Médicos Mayores
+
+Proyecto de GCP:
+QA: gnp-gmm-qa
+UAT: gnp-gmm-uat
+PRO: gnp-gmm-pro
+
+Cluster GKE:
+QA: gnp-gke-gmm-qa
+PRO: gnp-gke-gmm-pro
+
+Kubernetes:
+Namespace: gastos-medicos
+Deployment: ms-gmm-api
+Service: svc-gmm-api
+
+Gitlab: https://gitlab.gnp.com.mx/gmm/gastos-medicos-api
+Swagger: https://qa-gmm.gnp.com.mx/swagger-ui.html
+
+URL / Base Path:
+QA: https://qa-gmm.gnp.com.mx/api/v1
+UAT: https://uat-gmm.gnp.com.mx/api/v1
+PRO: https://gmm.gnp.com.mx/api/v1
+
+APIGee:
+Proxy: gastos-medicos-proxy
+API Product: gmm-reembolsos-product</textarea>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn btn-secondary" onclick="goToStep(1)">← Volver</button>
+      <div class="spinner" id="app-spinner"></div>
+      <button class="btn btn-primary" onclick="crearApplication()">🚀 Crear Application</button>
+    </div>
+
+    <div class="result-panel" id="app-result">
+      <div class="result-header"><span>Respuesta de HOPEX</span><span class="badge" id="app-result-badge"></span></div>
+      <pre id="app-result-json"></pre>
+    </div>
+  </div>
+
+  <div class="btn-group">
+    <button class="btn btn-primary" onclick="goToStep(3)">Continuar → Sistema Aplicativo</button>
+  </div>
+</div>

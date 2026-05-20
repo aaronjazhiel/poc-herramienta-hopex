@@ -1,0 +1,108 @@
+<!-- PASO 7: CREAR DEPÓSITOS DE DATOS -->
+<div class="step-section" id="step-7">
+  <div class="card">
+    <div class="card-header">
+      <div class="icon orange">🗄️</div>
+      <div>
+        <h2>Paso 7 — Crear Depósitos de Datos (ITARC)</h2>
+        <p>Cloud SQL (Relacional), Redis (NoSQL), Cloud Storage (Archivos)</p>
+      </div>
+    </div>
+
+    <div id="dep-container">
+      <div class="dep-entry" style="border:1px solid #E8E8F0; border-radius:8px; padding:20px; margin-bottom:16px;">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombre *</label>
+            <input type="text" class="dep-name" value="Gastos Médicos - Cloud SQL">
+          </div>
+          <div class="form-group">
+            <label>Tipo de Depósito *</label>
+            <select class="dep-tipo">
+              <option value="relational" selected>Relacional (Cloud SQL / PostgreSQL)</option>
+              <option value="nosql">NoSQL (Redis / Memorystore / Firestore)</option>
+              <option value="file">Archivos (Cloud Storage / Bucket)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Detalle de conexión</label>
+          <textarea class="dep-comment">PostgreSQL 14 — Reembolsos, autorizaciones, expedientes clínicos
+
+QA: gnp-gmm-qa / gmm-sql-qa / gastos_medicos_db / 5432
+UAT: gnp-gmm-uat / gmm-sql-uat / gastos_medicos_db / 5432
+PRO: gnp-gmm-pro / gmm-sql-pro / gastos_medicos_db / 5432</textarea>
+        </div>
+      </div>
+
+      <div class="dep-entry" style="border:1px solid #E8E8F0; border-radius:8px; padding:20px; margin-bottom:16px;">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombre *</label>
+            <input type="text" class="dep-name" value="Gastos Médicos - Redis">
+          </div>
+          <div class="form-group">
+            <label>Tipo de Depósito *</label>
+            <select class="dep-tipo">
+              <option value="relational">Relacional (Cloud SQL / PostgreSQL)</option>
+              <option value="nosql" selected>NoSQL (Redis / Memorystore / Firestore)</option>
+              <option value="file">Archivos (Cloud Storage / Bucket)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Detalle de conexión</label>
+          <textarea class="dep-comment">Cache Memorystore Redis — Sesiones, catálogo de red médica, tarifas
+
+QA: gnp-gmm-qa / gmm-redis-qa / 6379
+PRO: gnp-gmm-pro / gmm-redis-pro / 6379</textarea>
+        </div>
+      </div>
+
+      <div class="dep-entry" style="border:1px solid #E8E8F0; border-radius:8px; padding:20px; margin-bottom:16px;">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombre *</label>
+            <input type="text" class="dep-name" value="expedientes-gmm-bucket (gnp-gmm)">
+          </div>
+          <div class="form-group">
+            <label>Tipo de Depósito *</label>
+            <select class="dep-tipo">
+              <option value="relational">Relacional (Cloud SQL / PostgreSQL)</option>
+              <option value="nosql">NoSQL (Redis / Memorystore / Firestore)</option>
+              <option value="file" selected>Archivos (Cloud Storage / Bucket)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Detalle de conexión</label>
+          <textarea class="dep-comment">Cloud Storage — Facturas, recetas, estudios de laboratorio, cartas de autorización (PDFs e imágenes)
+
+QA: expedientes-gmm-qa
+PRO: expedientes-gmm-pro
+
+Retención: 5 años (regulación CNBV)</textarea>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-secondary" onclick="agregarDeposito()" style="margin-bottom:20px;">
+      ➕ Agregar otro depósito
+    </button>
+
+    <div class="btn-group">
+      <button class="btn btn-secondary" onclick="goToStep(6)">← Volver</button>
+      <div class="spinner" id="dep-spinner"></div>
+      <button class="btn btn-primary" onclick="crearDepositos()">🚀 Crear Depósitos</button>
+    </div>
+
+    <div class="result-panel" id="dep-result">
+      <div class="result-header"><span>Respuesta</span></div>
+      <pre id="dep-result-json"></pre>
+    </div>
+  </div>
+
+  <div class="btn-group">
+    <button class="btn btn-primary" onclick="goToStep(8)">Continuar → Entornos</button>
+  </div>
+</div>

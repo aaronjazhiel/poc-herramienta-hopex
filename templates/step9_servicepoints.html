@@ -1,0 +1,106 @@
+<!-- PASO 9: CREAR SERVICE POINTS -->
+<div class="step-section" id="step-9">
+  <div class="card">
+    <div class="card-header">
+      <div class="icon orange">🔌</div>
+      <div>
+        <h2>Paso 9 — Crear Service Points (ITARC)</h2>
+        <p>Endpoints de la API (GET, POST, PUT, DELETE)</p>
+      </div>
+    </div>
+
+    <div id="sp-container">
+      <div class="sp-entry" style="border:1px solid #E8E8F0; border-radius:8px; padding:20px; margin-bottom:16px;">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Endpoint *</label>
+            <input type="text" class="sp-name" value="POST /api/v1/reembolsos">
+          </div>
+          <div class="form-group">
+            <label>Descripción</label>
+            <input type="text" class="sp-comment" value="Solicitar nuevo reembolso de gastos médicos con documentos adjuntos">
+          </div>
+        </div>
+      </div>
+      <div class="sp-entry" style="border:1px solid #E8E8F0; border-radius:8px; padding:20px; margin-bottom:16px;">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Endpoint *</label>
+            <input type="text" class="sp-name" value="GET /api/v1/reembolsos/{id}/estatus">
+          </div>
+          <div class="form-group">
+            <label>Descripción</label>
+            <input type="text" class="sp-comment" value="Consultar estatus del trámite de reembolso">
+          </div>
+        </div>
+      </div>
+      <div class="sp-entry" style="border:1px solid #E8E8F0; border-radius:8px; padding:20px; margin-bottom:16px;">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Endpoint *</label>
+            <input type="text" class="sp-name" value="POST /api/v1/autorizaciones">
+          </div>
+          <div class="form-group">
+            <label>Descripción</label>
+            <input type="text" class="sp-comment" value="Solicitar carta de autorización para hospitalización o cirugía">
+          </div>
+        </div>
+      </div>
+      <div class="sp-entry" style="border:1px solid #E8E8F0; border-radius:8px; padding:20px; margin-bottom:16px;">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Endpoint *</label>
+            <input type="text" class="sp-name" value="GET /api/v1/red-medica/hospitales">
+          </div>
+          <div class="form-group">
+            <label>Descripción</label>
+            <input type="text" class="sp-comment" value="Consultar hospitales con convenio GNP por ubicación y especialidad">
+          </div>
+        </div>
+      </div>
+      <div class="sp-entry" style="border:1px solid #E8E8F0; border-radius:8px; padding:20px; margin-bottom:16px;">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Endpoint *</label>
+            <input type="text" class="sp-name" value="GET /api/v1/expediente/{poliza_id}">
+          </div>
+          <div class="form-group">
+            <label>Descripción</label>
+            <input type="text" class="sp-comment" value="Consultar expediente clínico digital del asegurado">
+          </div>
+        </div>
+      </div>
+      <div class="sp-entry" style="border:1px solid #E8E8F0; border-radius:8px; padding:20px; margin-bottom:16px;">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Endpoint *</label>
+            <input type="text" class="sp-name" value="POST /api/v1/cobertura/validar">
+          </div>
+          <div class="form-group">
+            <label>Descripción</label>
+            <input type="text" class="sp-comment" value="Validar cobertura, suma asegurada, deducible y coaseguro vigente">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-secondary" onclick="agregarServicePoint()" style="margin-bottom:20px;">
+      ➕ Agregar otro endpoint
+    </button>
+
+    <div class="btn-group">
+      <button class="btn btn-secondary" onclick="goToStep(8)">← Volver</button>
+      <div class="spinner" id="sp-spinner"></div>
+      <button class="btn btn-primary" onclick="crearServicePoints()">🚀 Crear Service Points</button>
+    </div>
+
+    <div class="result-panel" id="sp-result">
+      <div class="result-header"><span>Respuesta</span></div>
+      <pre id="sp-result-json"></pre>
+    </div>
+  </div>
+
+  <div class="btn-group">
+    <button class="btn btn-primary" onclick="goToStep(10)">Continuar → Vincular</button>
+  </div>
+</div>

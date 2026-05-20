@@ -1,0 +1,104 @@
+<!-- PASO 5: CREAR IT SERVICES -->
+<div class="step-section" id="step-5">
+  <div class="card">
+    <div class="card-header">
+      <div class="icon blue">☁️</div>
+      <div>
+        <h2>Paso 5 — Crear IT Services (ITARC)</h2>
+        <p>PubSub, Cloud Functions, APIs externas, Cloud Scheduler</p>
+      </div>
+    </div>
+
+    <div id="its-container">
+      <div class="its-entry" style="border:1px solid #E8E8F0; border-radius:8px; padding:20px; margin-bottom:16px;">
+        <div class="form-group">
+          <label>Nombre del IT Service *</label>
+          <input type="text" class="its-name" value="PubSub (gnp-gmm)">
+        </div>
+        <div class="form-group">
+          <label>Comentario</label>
+          <textarea class="its-comment">Servicio de mensajería para eventos de reembolsos y autorizaciones
+
+Proyecto GCP: gnp-gmm-pro
+Topics: reembolso-solicitado, autorizacion-aprobada, expediente-actualizado
+Subscriptions: sub-notificacion-reembolso, sub-actualizar-expediente</textarea>
+        </div>
+      </div>
+
+      <div class="its-entry" style="border:1px solid #E8E8F0; border-radius:8px; padding:20px; margin-bottom:16px;">
+        <div class="form-group">
+          <label>Nombre del IT Service *</label>
+          <input type="text" class="its-name" value="notificacion-reembolso (gnp-gmm)">
+        </div>
+        <div class="form-group">
+          <label>Comentario</label>
+          <textarea class="its-comment">Cloud Function para notificar al asegurado sobre estatus de reembolso (aprobado, rechazado, en revisión)
+
+Runtime: Node.js 18
+Trigger: PubSub topic reembolso-solicitado</textarea>
+        </div>
+      </div>
+
+      <div class="its-entry" style="border:1px solid #E8E8F0; border-radius:8px; padding:20px; margin-bottom:16px;">
+        <div class="form-group">
+          <label>Nombre del IT Service *</label>
+          <input type="text" class="its-name" value="recordatorio-documentos-pendientes (gnp-gmm)">
+        </div>
+        <div class="form-group">
+          <label>Comentario</label>
+          <textarea class="its-comment">Cloud Scheduler para recordar al asegurado documentos faltantes en su trámite de reembolso
+
+Schedule: 0 10 * * * (diario 10am)
+Target: HTTP POST ms-gmm-reembolsos/api/v1/recordatorios</textarea>
+        </div>
+      </div>
+
+      <div class="its-entry" style="border:1px solid #E8E8F0; border-radius:8px; padding:20px; margin-bottom:16px;">
+        <div class="form-group">
+          <label>Nombre del IT Service *</label>
+          <input type="text" class="its-name" value="validacion-cedula-medica (API)">
+        </div>
+        <div class="form-group">
+          <label>Comentario</label>
+          <textarea class="its-comment">API externa para validar cédula profesional del médico tratante
+
+Proveedor: SEP / COEPES
+URL: https://api.cedulaprofesional.sep.gob.mx/v1/validar</textarea>
+        </div>
+      </div>
+
+      <div class="its-entry" style="border:1px solid #E8E8F0; border-radius:8px; padding:20px; margin-bottom:16px;">
+        <div class="form-group">
+          <label>Nombre del IT Service *</label>
+          <input type="text" class="its-name" value="directorio-medico-gnp (API)">
+        </div>
+        <div class="form-group">
+          <label>Comentario</label>
+          <textarea class="its-comment">API interna para consultar red médica, hospitales y convenios GNP
+
+URL: https://api-red-medica.gnp.com.mx/v1/directorio
+Incluye: hospitales, médicos, laboratorios, farmacias</textarea>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-secondary" onclick="agregarITService()" style="margin-bottom:20px;">
+      ➕ Agregar otro IT Service
+    </button>
+
+    <div class="btn-group">
+      <button class="btn btn-secondary" onclick="goToStep(4)">← Volver</button>
+      <div class="spinner" id="its-spinner"></div>
+      <button class="btn btn-primary" onclick="crearITServices()">🚀 Crear IT Services</button>
+    </div>
+
+    <div class="result-panel" id="its-result">
+      <div class="result-header"><span>Respuesta</span></div>
+      <pre id="its-result-json"></pre>
+    </div>
+  </div>
+
+  <div class="btn-group">
+    <button class="btn btn-primary" onclick="goToStep(6)">Continuar → Funcionalidades</button>
+  </div>
+</div>
