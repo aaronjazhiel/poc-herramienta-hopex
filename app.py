@@ -162,10 +162,12 @@ def crear_itservice():
 @app.route("/api/crear-funcionalidad", methods=["POST"])
 def crear_funcionalidad():
     body = request.json
+    name = body.get('name', '')
+    comment = body.get('comment', '').replace('"', '\\"')
     query = f'''mutation {{
   createFunctionality(functionality: {{
-    name: "{body['name']}"
-    comment: "{body.get('comment', '').replace('"', '\\"')}"
+    name: "{name}"
+    comment: "{comment}"
   }}) {{
     id
     name
@@ -239,10 +241,12 @@ def crear_entorno():
 @app.route("/api/crear-servicepoint", methods=["POST"])
 def crear_servicepoint():
     body = request.json
+    name = body.get('name', '')
+    comment = body.get('comment', '').replace('"', '\\"')
     query = f'''mutation {{
   createServicePoint(servicePoint: {{
-    name: "{body['name']}"
-    comment: "{body.get('comment', '').replace('"', '\\"')}"
+    name: "{name}"
+    comment: "{comment}"
   }}) {{
     id
     name
@@ -256,10 +260,12 @@ def crear_servicepoint():
 @app.route("/api/crear-escenario", methods=["POST"])
 def crear_escenario():
     body = request.json
+    name = body.get('name', '')
+    comment = body.get('comment', '').replace('"', '\\"')
     query = f'''mutation {{
   createScenarioOfApplicationSystemFlows(scenarioOfApplicationSystemFlows: {{
-    name: "{body['name']}"
-    comment: "{body.get('comment', '').replace('"', '\\"')}"
+    name: "{name}"
+    comment: "{comment}"
   }}) {{
     id
     name
