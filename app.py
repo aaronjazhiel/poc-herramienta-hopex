@@ -357,18 +357,23 @@ def asignar_owners():
 
     parts = []
     if body.get("app_owner_id"):
-        parts.append(f'applicationOwner_PersonSystem: {{ action: ADD, list: [{{ id: "{body["app_owner_id"]}" }}] }}')
+        owner_id = body["app_owner_id"]
+        parts.append('applicationOwner_PersonSystem: { action: ADD, list: [{ id: "' + owner_id + '" }] }')
     if body.get("it_owner_id"):
-        parts.append(f'iTOwner_PersonSystem: {{ action: ADD, list: [{{ id: "{body["it_owner_id"]}" }}] }}')
+        owner_id = body["it_owner_id"]
+        parts.append('iTOwner_PersonSystem: { action: ADD, list: [{ id: "' + owner_id + '" }] }')
     if body.get("biz_owner_id"):
-        parts.append(f'businessOwner_PersonSystem: {{ action: ADD, list: [{{ id: "{body["biz_owner_id"]}" }}] }}')
+        owner_id = body["biz_owner_id"]
+        parts.append('businessOwner_PersonSystem: { action: ADD, list: [{ id: "' + owner_id + '" }] }')
 
     if not parts:
         return jsonify({"status": 400, "error": "Debes proporcionar al menos un owner"})
 
+    newline = chr(10)
+    joined_parts = newline.join(parts)
     query = f'''mutation {{
   updateApplication(id: "{app_id}" application: {{
-    {chr(10).join(parts)}
+    {joined_parts}
   }}) {{
     id
     name
