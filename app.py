@@ -417,11 +417,12 @@ def health():
 
 
 if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8080))
     if not API_KEY:
         print("\n⚠️  HOPEX_TOKEN no está configurado!")
         print("   Ejecuta: export HOPEX_TOKEN='tu_api_key'")
         print("   Luego vuelve a correr: python3 app.py\n")
     else:
         print(f"\n✅ HOPEX_TOKEN configurado ({API_KEY[:8]}...)")
-    print("🚀 Servidor en http://localhost:8080\n")
-    app.run(debug=True, port=8080)
+    print(f"🚀 Servidor en http://localhost:{port}\n")
+    app.run(debug=False, host='0.0.0.0', port=port)
